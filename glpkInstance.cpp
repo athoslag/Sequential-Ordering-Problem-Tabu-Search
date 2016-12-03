@@ -29,55 +29,55 @@ int main(){
             }else{
                 custo[i][j] = c;
                 precedencia[j][i] = 0;
-            }          
+            }
 
         }
-    }    
-    
+    }
+
     cout << "data;" << endl;
     cout << "set N:= " ;
     for(int i=0; i<tam; i++){
-        cout << i << " "; 
+        cout << i << " ";
     }
     cout << ";" << endl;
 
     cout << "set C:= " ;
     for(int i=1; i<tam-1; i++){
-        cout << i << " "; 
+        cout << i << " ";
     }
     cout << ";" << endl;
 
-    cout << "param G:= 100000;" << endl;
+    cout << "param INF:= 100000;" << endl;
     cout << "param c:" << endl;
     for(int i=0; i<tam; i++){
-        cout << i << " "; 
+        cout << i << " ";
     }
     cout << ":=" << endl;
 
     for(int i=0; i<tam; i++){
-        cout << i << " "; 
+        cout << i << " ";
         for(int j=0; j<tam; j++){
-                cout << custo[i][j] << " "; 
+                cout << custo[i][j] << " ";
         }
         cout << endl;
     }
     cout << ";" << endl;
-    cout << "param p:" << endl;
+    cout << "param P:" << endl;
     for(int i=0; i<tam; i++){
-        cout << i << " "; 
+        cout << i << " ";
     }
     cout << ":=" << endl;
     for(int i=0; i<tam; i++){
-        cout << i << " "; 
+        cout << i << " ";
         for(int j=0; j<tam; j++){
-                cout << precedencia[i][j] << " "; 
+                cout << precedencia[i][j] << " ";
         }
         cout << endl;
     }
     cout << ";" << endl;
-    cout << "end:";
+    cout << "end;";
 
-
+    system("pause");
 
 
 

@@ -35,15 +35,23 @@ s.t. end:
 s.t. onevisit{i in C}:
 		sum{j in N: j != 0 and j != i} x[i,j] = 1;
 
-# 6 - Todo entrante tem exatamente um sainte
-s.t. paired{j in C}: 
-		sum{i in N: j != i and i != n} x[i,j] - sum{k in N: j != k and k != 0} x[j,k] = 0;
+# 4 - Todo vértice tem um entrante
+s.t. inLim{j in C}: 
+		sum{i in N: j != i and i != n} x[i,j] = 1;
 
-# 7 - Mantém coerente a ordem de visitação
+# 4 - Todo vértice tem um sainte
+s.t. outLim{j in C}: 
+		sum{k in N: j != k and k != 0} x[j,k] = 1;
+
+# 4 - Todo entrante tem exatamente um sainte
+s.t. paired{j in C}: 
+		sum{i in N: j != i and i != n} x[i,j] + sum{k in N: j != k and k != 0} x[j,k] = 2;
+
+# 6 - Mantém coerente a ordem de visitação
 s.t. order{i in N, j in N: i != j and i != n and j != 0}:
 		1 + u[i] <= u[j] - INF * (x[i,j] - 1);
 
-# 8 - Precedências devem ser respeitadas
+# 7 - Precedências devem ser respeitadas
 s.t. prec{i in N, j in N: i != j and i != n and j != 0 and P[i,j] = 1}: 
 		u[i] + 1 <= u[j];
 
