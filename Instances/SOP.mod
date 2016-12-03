@@ -7,7 +7,7 @@ set NODES;
 set ARCS;
 
 # 	Parâmetros
-param INF; # Um número mt grande 
+param INF; # Um número muito grande 
 param P{i in NODES, j in NODES}; # Dígrafo de precedência
 param n := card(ARCS) + 1; # tamanho
 param c{i in NODES, j in NODES}; # custo de ir de i para j
@@ -34,13 +34,13 @@ s.t. end:
 s.t. onevisit{i in ARCS}:
 		sum{j in NODES: j != 0 and j != i} x[i,j] = 1;
 
-# 4 - Todo entrante tem exatamente um sainte
+# 4 - Todo entrante tem exatamente um sainte (com exceção do início e fim)
 s.t. paired{j in ARCS}: 
 		sum{i in NODES: j != i and i != n} x[i,j] - sum{k in NODES: j != k and k != 0} x[j,k] = 0;
 
 # 5 - Mantém coerente a ordem de visitação
 s.t. order{i in NODES, j in NODES: i != j and i != n and j != 0}:
-		1 + u[i] <= u[j] - INF * (x[i,j] - 1);
+		u[i] + 1 <= u[j] - INF * (x[i,j] - 1);
 
 # 6 - Precedências devem ser respeitadas
 s.t. prec{i in NODES, j in NODES: i != j and i != n and j != 0 and P[i,j] = 1}: 

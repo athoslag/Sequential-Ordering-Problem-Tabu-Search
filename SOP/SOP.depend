@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1480796867 source:c:\users\eduardo.dgp\desktop\sop\main.cpp
+	<iostream>
+	<vector>
+	<string>
+	<fstream>
+	<algorithm>
+
+1480796867 source:c:\users\atp\desktop\gold\otimização combinatória\sop\main.cpp
+	<iostream>
+	<vector>
+	<string>
+	<fstream>
+	<algorithm>
+
